@@ -1,0 +1,9 @@
+export * as authController from "./auth.controller.js";
+export * as usersController from "./users.controller.js";
+export * as coursesController from "./courses.controller.js";
+export * as subjectsController from "./subjects.controller.js";
+export * as studentsController from "./students.controller.js";
+export * as facultyController from "./faculty.controller.js";
+export * as attendanceController from "./attendance.controller.js";
+export * as leavesController from "./leaves.controller.js";
+export * as reportsController from "./reports.controller.js";
