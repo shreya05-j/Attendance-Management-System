@@ -11,7 +11,8 @@
     "build:server": "cd server && tsc",
     "preview": "vite preview",
     "migrate": "tsx server/src/database/migrate.ts",
-    "seed": "tsx server/src/database/seed.ts"
+    "seed": "tsx server/src/database/seed.ts",
+    "start": "cd server && npm install && npm run build && npm start"
   },
   "dependencies": {
     "@tanstack/react-query": "^5.100.5",
