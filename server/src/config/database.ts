@@ -1,12 +1,18 @@
 import pg from "pg";
 import { env } from "./env.js";
 
+const poolConfig: pg.PoolConfig = env.DATABASE_URL
+  ? { connectionString: env.DATABASE_URL, ssl: { rejectUnauthorized: false } }
+  : {
+      host: env.DB_HOST,
+      port: env.DB_PORT,
+      database: env.DB_NAME,
+      user: env.DB_USER,
+      password: env.DB_PASSWORD,
+    };
+
 const pool = new pg.Pool({
-  host: env.DB_HOST,
-  port: env.DB_PORT,
-  database: env.DB_NAME,
-  user: env.DB_USER,
-  password: env.DB_PASSWORD,
+  ...poolConfig,
   max: 20,
   idleTimeoutMillis: 30000,
   connectionTimeoutMillis: 5000,

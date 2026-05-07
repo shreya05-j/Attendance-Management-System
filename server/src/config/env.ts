@@ -22,6 +22,7 @@ export const env = {
   DB_NAME: getEnv("DB_NAME", "attendance_db"),
   DB_USER: getEnv("DB_USER", "postgres"),
   DB_PASSWORD: getEnv("DB_PASSWORD", "postgres"),
+  DATABASE_URL: process.env.DATABASE_URL,
 
   JWT_SECRET: getEnv("JWT_SECRET"),
   JWT_EXPIRES_IN: getEnv("JWT_EXPIRES_IN", "8h"),

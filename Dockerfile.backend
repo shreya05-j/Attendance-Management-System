@@ -1,0 +1,29 @@
+FROM node:20-alpine
+
+WORKDIR /app
+
+# Copy root configuration files (if needed)
+COPY package*.json ./
+
+# Copy server files
+COPY server/package*.json ./server/
+COPY server/tsconfig.json ./server/
+
+# Install dependencies for server
+RUN cd server && npm install
+
+# Copy server source code
+COPY server/src ./server/src
+
+# Build the server
+RUN cd server && npm run build
+
+# Expose the port
+EXPOSE 10000
+
+# Set environment variables
+ENV PORT=10000
+ENV NODE_ENV=production
+
+# Start the server
+CMD ["node", "server/dist/index.js"]
